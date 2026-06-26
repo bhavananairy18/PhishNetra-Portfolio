@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishNetra | AI-Powered Cybersecurity & Anti-Phishing Extension</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="PhishNetra is a modern AI-powered browser extension and security shield that analyzes URLs, checks domain age, verifies SSL status, and flags dangerous phishing websites in real-time.">
+    <meta name="keywords" content="cybersecurity, anti-phishing, threat intelligence, browser extension, URL analysis, risk score, phishing detection">
+    
+    <!-- OpenGraph Social Metadata -->
+    <meta property="og:title" content="PhishNetra | Cybersecurity & Anti-Phishing Shield">
+    <meta property="og:description" content="Protect your digital identity with PhishNetra's real-time security scanning and heuristic domain analysis.">
+    <meta property="og:type" content="website">
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Deferred Scripts -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Cyber Canvas Background Matrix -->
+    <canvas id="cyber-canvas"></canvas>
+    <div class="cyber-grid"></div>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-wrapper" id="nav-logo">
+                <!-- SVG Cyber Shield Logo -->
+                <svg class="logo-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00f0ff" />
+                            <stop offset="50%" stop-color="#0a1a3a" />
+                            <stop offset="100%" stop-color="#020813" />
+                        </linearGradient>
+                        <linearGradient id="eyeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffaa00" />
+                            <stop offset="100%" stop-color="#ff073a" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Outer Shield -->
+                    <path d="M50,10 L85,22 C85,60 50,88 50,88 C50,88 15,60 15,22 Z" fill="url(#shieldGrad)" stroke="#00f0ff" stroke-width="3" />
+                    <!-- Antenna -->
+                    <line x1="80" y1="20" x2="90" y2="5" stroke="#00f0ff" stroke-width="3" />
+                    <circle cx="90" cy="5" r="3" fill="#00f0ff" />
+                    <!-- Outer Eye Iris Rings -->
+                    <circle cx="50" cy="50" r="16" fill="none" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+                    <!-- Cyber Eye Contour (Sclera) -->
+                    <path d="M28,50 Q50,28 72,50 Q50,72 28,50 Z" fill="none" stroke="#00f0ff" stroke-width="2" />
+                    <!-- Glowing Pupil (Eye Center) -->
+                    <circle cx="50" cy="50" r="10" fill="url(#eyeGrad)" />
+                    <circle cx="50" cy="50" r="5" fill="#030611" />
+                    <circle cx="48" cy="48" r="1.5" fill="#fff" />
+                </svg>
+                <span class="logo-text">PhishNetra</span>
+            </a>
+            
+            <button class="mobile-nav-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#workflow">Workflow</a></li>
+                    <li><a href="#tech">Tech Stack</a></li>
+                    <li><a href="#gallery">Showcase</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Interactive Extension Simulator -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content reveal">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Cyber Defense Active
+                </div>
+                <h1 class="hero-title">PhishNetra</h1>
+                <div class="hero-tagline">
+                    <span class="tagline-text">Real-Time Anti-Phishing Shield.</span><span class="cursor"></span>
+                </div>
+                <p class="hero-description">
+                    An intelligent browser security tool and threat classification engine designed to stop credential harvesting, social engineering attacks, and phishing links before they load.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#gallery" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> View Demo
+                    </a>
+                    <a href="#github" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> GitHub Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Threat Simulator (Direct UI Recreation of user's references) -->
+            <div class="hero-visual reveal">
+                <div class="glow-circle-bg"></div>
+                <div class="extension-container">
+                    
+                    <!-- The Extension Popup Widget -->
+                    <div class="extension-popup dangerous">
+                        
+                        <!-- Toggle & Shield Area -->
+                        <div class="extension-header">
+                            <div class="extension-shield-container">
+                                <!-- Inline Shield SVG -->
+                                <svg class="extension-shield" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="popShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#00f0ff" />
+                                            <stop offset="50%" stop-color="#0d1b3e" />
+                                            <stop offset="100%" stop-color="#020813" />
+                                        </linearGradient>
+                                        <linearGradient id="popEyeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#ffaa00" />
+                                            <stop offset="100%" stop-color="#ff073a" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M50,10 L85,22 C85,60 50,88 50,88 C50,88 15,60 15,22 Z" fill="url(#popShieldGrad)" stroke="#00f0ff" stroke-width="3" />
+                                    <line x1="80" y1="20" x2="90" y2="5" stroke="#00f0ff" stroke-width="3" />
+                                    <circle cx="90" cy="5" r="3" fill="#00f0ff" />
+                                    <circle cx="50" cy="50" r="16" fill="none" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5" stroke-dasharray="4,2" />
+                                    <path d="M28,50 Q50,28 72,50 Q50,72 28,50 Z" fill="none" stroke="#00f0ff" stroke-width="2" />
+                                    <circle cx="50" cy="50" r="10" fill="url(#popEyeGrad)" />
+                                    <circle cx="50" cy="50" r="5" fill="#030611" />
+                                    <circle cx="48" cy="48" r="1.5" fill="#fff" />
+                                </svg>
+                                
+                                <!-- Active Toggle Slider -->
+                                <div class="extension-toggle">
+                                    <div class="extension-toggle-thumb"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Display Panel -->
+                        <div class="status-card">
+                            <h3 class="status-title text-neon-red">DANGEROUS</h3>
+                            <div class="domain-scanned">secure-login-paytm-verification.free-offer.xyz</div>
+                            
+                            <div class="score-panel">
+                                <span class="score-label">RISK SCORE</span>
+                                <span class="score-value">70/100</span>
+                            </div>
+
+                            <!-- 10 Segment Progress Bar -->
+                            <div class="progress-segments">
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment dangerous-active"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                            </div>
+                        </div>
+
+                        <!-- Scan Metadata Panel -->
+                        <div class="details-panel">
+                            <div class="meta-grid">
+                                <div>
+                                    <div class="meta-item-label">SSL STATUS</div>
+                                    <div class="meta-item-value text-neon-red" id="ssl-status-val">
+                                        <i class="fas fa-lock-open"></i> Insecure
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="meta-item-label">DOMAIN AGE</div>
+                                    <div class="meta-item-value text-primary" id="domain-age-val">age unavailable</div>
+                                </div>
+                            </div>
+
+                            <div class="risk-signals-header">DETECTED RISK SIGNALS</div>
+                            <ul class="risk-signals-list">
+                                <li>Connection is not secure (HTTP instead of HTTPS).</li>
+                                <li>URL length is greater than 25 characters.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Simulator Control Console -->
+                        <div class="simulator-input-panel">
+                            <input type="text" id="simulator-url" class="simulator-input" placeholder="Type URL to scan..." value="secure-login-paytm-verification.free-offer.xyz">
+                            <button id="simulate-scan-btn" class="simulator-btn">Scan</button>
+                        </div>
+                        <div class="simulator-quick-tags">
+                            <span class="quick-tag" data-url="secure-login-paytm-verification.free-offer.xyz">Dangerous</span>
+                            <span class="quick-tag" data-url="wrs51.winshipway.com">Suspicious</span>
+                            <span class="quick-tag" data-url="antigravity.google">Safe</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">PROJECT OVERVIEW</span>
+            <h2 class="section-title">About PhishNetra</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-visual reveal">
+                <!-- Glowing Shield Graphic -->
+                <svg class="cyber-shield-graphic" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="cyberShieldGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(0, 240, 255, 0.25)" />
+                            <stop offset="100%" stop-color="rgba(3, 6, 17, 0)" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="48" fill="url(#cyberShieldGlow)" />
+                    <!-- Shield Base -->
+                    <path d="M50,15 L80,25 C80,55 50,82 50,82 C50,82 20,55 20,25 Z" fill="rgba(8, 18, 38, 0.8)" stroke="#00f0ff" stroke-width="2" />
+                    <!-- Security lines -->
+                    <path d="M35,32 L65,32 M35,42 L65,42 M35,52 L65,52 M42,62 L58,62" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" />
+                    <!-- Center Lock -->
+                    <rect x="44" y="44" width="12" height="10" rx="2" fill="none" stroke="#39ff14" stroke-width="2" />
+                    <path d="M47,44 L47,39 A3,3 0 0,1 53,39 L53,44" fill="none" stroke="#39ff14" stroke-width="2" />
+                </svg>
+                <div class="scan-radar-line"></div>
+            </div>
+
+            <div class="about-text reveal">
+                <p>
+                    PhishNetra (meaning "Phishing Eye" in Sanskrit) acts as your digital sentry, constantly scanning domains and links to identify signs of cyber threat. It integrates intelligent heuristics, reputation database calls, and WHOIS domain profile inspections to classify risk instantaneously.
+                </p>
+                <p>
+                    Phishing remains the primary vector for global credential theft. PhishNetra helps users browse confidently by evaluating multiple risk vectors, warning them immediately about invalid certificates, unsafe URLs, and typo-squatted domains before they submit credentials.
+                </p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number text-neon-blue">100%</div>
+                        <div class="stat-label">Client-Side Shielding</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number text-neon-green">&lt; 150ms</div>
+                        <div class="stat-label">Analysis Speed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section id="features" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">CAPABILITIES</span>
+            <h2 class="section-title">Key Security Features</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="features-grid">
+            
+            <!-- Feature 1 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3 class="feature-card-title">Risk Scoring System</h3>
+                <p class="feature-card-description">Compiles weight factors to calculate a unified risk score from 0-100 indicating trust status.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3 class="feature-card-title">URL Heuristics</h3>
+                <p class="feature-card-description">Scans subdomains, directory structures, and string lengths to identify deceptive URL spoofing.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-card-title">HTTPS & SSL Check</h3>
+                <p class="feature-card-description">Instantly reports whether HTTP or HTTPS protocol is utilized and validates cert configuration.</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="feature-card-title">Domain Age Audit</h3>
+                <p class="feature-card-description">Queries WHOIS data dynamically; identifies newly created sites frequently used in phishing campaigns.</p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3 class="feature-card-title">Keyword Detection</h3>
+                <p class="feature-card-description">Searches for high-frequency terms like 'verify', 'update', 'login', 'free' which attempt social engineering.</p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-list-alt"></i>
+                </div>
+                <h3 class="feature-card-title">Blacklist Integration</h3>
+                <p class="feature-card-description">Links against active threat feeds and malicious databases to block known phishing hosts instantly.</p>
+            </div>
+
+            <!-- Feature 7 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="feature-card-title">Warning Interstitials</h3>
+                <p class="feature-card-description">Halts redirection, loading a high-contrast caution window that alerts users of active risk flags.</p>
+            </div>
+
+            <!-- Feature 8 -->
+            <div class="feature-card glass-panel reveal">
+                <div class="feature-icon-wrapper">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3 class="feature-card-title">Browser Extension</h3>
+                <p class="feature-card-description">Runs as a background process within Chrome/Firefox with zero friction to user workflow.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="workflow" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">EXECUTION PIPELINE</span>
+            <h2 class="section-title">How It Works</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="workflow-timeline">
+            
+            <!-- Step 1 -->
+            <div class="timeline-step reveal">
+                <div class="timeline-node">
+                    <div class="timeline-node-inner"></div>
+                </div>
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-number">01</div>
+                    <h3 class="timeline-title">URL Capture</h3>
+                    <p class="timeline-desc">When you navigate to a website, the Chrome Extension intercepts the link request instantly before page parsing starts, checking threat vector files.</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="timeline-step reveal">
+                <div class="timeline-node">
+                    <div class="timeline-node-inner"></div>
+                </div>
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-number">02</div>
+                    <h3 class="timeline-title">Feature Extraction</h3>
+                    <p class="timeline-desc">PhishNetra parses the address for length, subdomains, SSL setup, and executes rapid calls to checking algorithms, returning threat features.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="timeline-step reveal">
+                <div class="timeline-node">
+                    <div class="timeline-node-inner"></div>
+                </div>
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-number">03</div>
+                    <h3 class="timeline-title">Threat Computation</h3>
+                    <p class="timeline-desc">The metrics are calculated through the weight classifier. The engine matches findings against risk guidelines, defining safe, suspicious or dangerous statuses.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="timeline-step reveal">
+                <div class="timeline-node">
+                    <div class="timeline-node-inner"></div>
+                </div>
+                <div class="timeline-content glass-panel">
+                    <div class="timeline-number">04</div>
+                    <h3 class="timeline-title">Real-Time Protection</h3>
+                    <p class="timeline-desc">If the score matches danger criteria, the client is redirected to a custom security blocking page preventing data input or login breaches.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="tech" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">ARCHITECTURE</span>
+            <h2 class="section-title">Technology Stack</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="tech-grid">
+            
+            <!-- Tech 1 -->
+            <div class="tech-card glass-panel reveal">
+                <div class="tech-icon">
+                    <i class="fab fa-js-square"></i>
+                </div>
+                <h3 class="tech-title">JavaScript / extension</h3>
+                <p class="tech-use">Core Client Interface & DOM Interceptor</p>
+            </div>
+
+            <!-- Tech 2 -->
+            <div class="tech-card glass-panel reveal">
+                <div class="tech-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <h3 class="tech-title">Python / FastAPI</h3>
+                <p class="tech-use">Backend Classifier & WHOIS Parser API</p>
+            </div>
+
+            <!-- Tech 3 -->
+            <div class="tech-card glass-panel reveal">
+                <div class="tech-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="tech-title">Machine Learning</h3>
+                <p class="tech-use">Random Forest Classifier model</p>
+            </div>
+
+            <!-- Tech 4 -->
+            <div class="tech-card glass-panel reveal">
+                <div class="tech-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3 class="tech-title">PostgreSQL / Redis</h3>
+                <p class="tech-use">Reputation List Cache & Feeds</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Showcase Gallery Section (Warning alert page layout recreations) -->
+    <section id="gallery" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">VISUAL PREVIEW</span>
+            <h2 class="section-title">Product Showcase</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="gallery-filter-tabs reveal">
+            <button class="filter-tab active" data-filter="all">All Screens</button>
+            <button class="filter-tab" data-filter="extension">Extension UI</button>
+            <button class="filter-tab" data-filter="warnings">Warning Pages</button>
+        </div>
+
+        <div class="gallery-grid">
+            
+            <!-- Showcase Item 1: Ext Safe -->
+            <div class="gallery-item glass-panel reveal" data-category="extension">
+                <div class="gallery-image-wrapper">
+                    <!-- Inline HTML Extension Mockup -->
+                    <div class="extension-popup safe" style="transform: scale(0.8); pointer-events: none;">
+                        <div class="extension-header">
+                            <div class="extension-shield-container">
+                                <svg class="extension-shield" viewBox="0 0 100 100">
+                                    <path d="M50,10 L85,22 C85,60 50,88 50,88 C50,88 15,60 15,22 Z" fill="url(#popShieldGrad)" stroke="#39ff14" stroke-width="3" />
+                                    <line x1="80" y1="20" x2="90" y2="5" stroke="#39ff14" stroke-width="3" />
+                                    <circle cx="90" cy="5" r="3" fill="#39ff14" />
+                                    <path d="M28,50 Q50,28 72,50 Q50,72 28,50 Z" fill="none" stroke="#39ff14" stroke-width="2" />
+                                    <circle cx="50" cy="50" r="10" fill="#39ff14" />
+                                    <circle cx="50" cy="50" r="5" fill="#030611" />
+                                </svg>
+                                <div class="extension-toggle">
+                                    <div class="extension-toggle-thumb"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-card">
+                            <h3 class="status-title text-neon-green">SAFE</h3>
+                            <div class="domain-scanned">antigravity.google</div>
+                            <div class="score-panel">
+                                <span class="score-label">RISK SCORE</span>
+                                <span class="score-value">15/100</span>
+                            </div>
+                            <div class="progress-segments">
+                                <div class="segment safe-active"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus gallery-zoom-icon"></i>
+                    <h4 class="gallery-item-title">Extension: Safe Status</h4>
+                    <p class="gallery-item-desc">Clean domain verification. Shows low risk score and SSL active indicators.</p>
+                </div>
+            </div>
+
+            <!-- Showcase Item 2: Ext Suspicious -->
+            <div class="gallery-item glass-panel reveal" data-category="extension">
+                <div class="gallery-image-wrapper">
+                    <!-- Inline HTML Extension Mockup -->
+                    <div class="extension-popup suspicious" style="transform: scale(0.8); pointer-events: none;">
+                        <div class="extension-header">
+                            <div class="extension-shield-container">
+                                <svg class="extension-shield" viewBox="0 0 100 100">
+                                    <path d="M50,10 L85,22 C85,60 50,88 50,88 C50,88 15,60 15,22 Z" fill="url(#popShieldGrad)" stroke="#ffaa00" stroke-width="3" />
+                                    <line x1="80" y1="20" x2="90" y2="5" stroke="#ffaa00" stroke-width="3" />
+                                    <circle cx="90" cy="5" r="3" fill="#ffaa00" />
+                                    <path d="M28,50 Q50,28 72,50 Q50,72 28,50 Z" fill="none" stroke="#ffaa00" stroke-width="2" />
+                                    <circle cx="50" cy="50" r="10" fill="#ffaa00" />
+                                    <circle cx="50" cy="50" r="5" fill="#030611" />
+                                </svg>
+                                <div class="extension-toggle">
+                                    <div class="extension-toggle-thumb"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="status-card">
+                            <h3 class="status-title text-neon-orange">SUSPICIOUS</h3>
+                            <div class="domain-scanned">wrs51.winshipway.com</div>
+                            <div class="score-panel">
+                                <span class="score-label">RISK SCORE</span>
+                                <span class="score-value">55/100</span>
+                            </div>
+                            <div class="progress-segments">
+                                <div class="segment suspicious-active"></div>
+                                <div class="segment suspicious-active"></div>
+                                <div class="segment suspicious-active"></div>
+                                <div class="segment suspicious-active"></div>
+                                <div class="segment suspicious-active"></div>
+                                <div class="segment suspicious-active"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                                <div class="segment"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus gallery-zoom-icon"></i>
+                    <h4 class="gallery-item-title">Extension: Suspicious State</h4>
+                    <p class="gallery-item-desc">Flagged for HTTP protocol insecure status and longer domain URL parameters.</p>
+                </div>
+            </div>
+
+            <!-- Showcase Item 3: Alert Suspicious (Orange screen match) -->
+            <div class="gallery-item glass-panel reveal" data-category="warnings">
+                <div class="gallery-image-wrapper" style="background: #0d0602;">
+                    <!-- Warning Page Mockup -->
+                    <div class="warning-alert-showcase orange-theme" style="width:100%; height:100%; padding:1rem; overflow:hidden; font-size:0.6rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:5px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2.2rem; color: #ff9900; filter: drop-shadow(0 0 5px #ff9900);"></i>
+                        <h4 class="font-cyber" style="color: #ff9900; font-size:0.75rem; letter-spacing:1px; text-shadow:0 0 5px rgba(255,153,0,0.5);">SUSPICIOUS ACTIVITY DETECTED</h4>
+                        <p style="color:#94a3b8; font-size:0.48rem; max-width:85%; margin-bottom:2px; line-height: 1.2;">PhishNetra has detected suspicious elements on this website. It may be unsafe to proceed, especially if you are asked to provide sensitive information like passwords or credit card details.</p>
+                        
+                        <div style="background:rgba(0,0,0,0.4); padding:3px 8px; border-radius:4px; border:1px solid rgba(255,255,255,0.05); color:#ff453a; font-family:monospace; margin-bottom:2px; font-size: 0.5rem;">
+                            http://wrs51.winshipway.com/
+                        </div>
+                        
+                        <div style="background:rgba(18,18,28,0.7); border:1px solid rgba(255,153,0,0.15); border-radius:6px; padding:3px 10px; width:70px; margin-bottom:2px;">
+                            <div style="font-size:0.35rem; color:#94a3b8;">RISK SCORE</div>
+                            <div class="font-cyber" style="color:#ff9900; font-size:0.8rem; font-weight:bold;">55 <span style="font-size:0.45rem; color:#fff;">/100</span></div>
+                        </div>
+
+                        <div style="width:85%; display:flex; flex-direction:column; gap:2px;">
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,153,0,0.03); border-left:2px solid #ff9900; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-bolt" style="color:#ff9900; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">Connection is not secure (HTTP instead of HTTPS).</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,153,0,0.03); border-left:2px solid #ff9900; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-bolt" style="color:#ff9900; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">URL length is greater than 25 characters.</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,153,0,0.03); border-left:2px solid #ff9900; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-bolt" style="color:#ff9900; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">Domain contains hyphens or multiple subdomains.</span>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; gap:10px; margin-top:4px;">
+                            <div style="background:#ff9900; color:#030611; font-weight:bold; padding:3px 10px; border-radius:4px; font-size:0.42rem; font-family:'Orbitron', sans-serif;">Go Back</div>
+                            <div style="border:1px solid rgba(255,255,255,0.3); color:#fff; padding:3px 10px; border-radius:4px; font-size:0.42rem; font-family:'Orbitron', sans-serif;">Continue</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus gallery-zoom-icon"></i>
+                    <h4 class="gallery-item-title">Suspicious Interstitial</h4>
+                    <p class="gallery-item-desc">Warning page displayed when loading suspicious links, indicating risks like HTTP and subdomains.</p>
+                </div>
+            </div>
+
+            <!-- Showcase Item 4: Alert Blocked (Red screen match) -->
+            <div class="gallery-item glass-panel reveal" data-category="warnings">
+                <div class="gallery-image-wrapper" style="background: #110306;">
+                    <!-- Access Blocked Mockup -->
+                    <div class="warning-alert-showcase red-theme" style="width:100%; height:100%; padding:1rem; overflow:hidden; font-size:0.6rem; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:5px;">
+                        
+                        <!-- Octagon Stop Sign -->
+                        <div style="width: 30px; height: 30px; background: #ff073a; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); box-shadow: 0 0 10px rgba(255,7,58,0.6); display:flex; align-items:center; justify-content:center;">
+                            <div style="width:24px; height:24px; background:#110306; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); display:flex; align-items:center; justify-content:center;">
+                                <i class="fas fa-ban" style="color:#ff073a; font-size: 0.7rem;"></i>
+                            </div>
+                        </div>
+
+                        <h4 class="font-cyber" style="color: #ff073a; font-size:0.75rem; letter-spacing:1px; text-shadow:0 0 5px rgba(255,7,58,0.5); margin-top:1px;">ACCESS BLOCKED</h4>
+                        <p style="color:#94a3b8; font-size:0.48rem; max-width:85%; margin-bottom:2px; line-height: 1.2;">This website is dangerous and may steal your data. Cybercriminals use deceptive websites to trick you into entering personal info such as passwords, credit card numbers, or OTPs.</p>
+                        
+                        <div style="background:rgba(18,18,28,0.7); border:1px solid rgba(255,7,58,0.15); border-radius:6px; padding:3px 10px; width:70px; margin-bottom:2px;">
+                            <div style="font-size:0.35rem; color:#94a3b8;">RISK SCORE</div>
+                            <div class="font-cyber" style="color:#ff073a; font-size:0.8rem; font-weight:bold;">70<span style="font-size:0.45rem; color:#94a3b8;">/100</span></div>
+                        </div>
+
+                        <div style="width:85%; display:flex; flex-direction:column; gap:2px;">
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,7,58,0.03); border-left:2px solid #ff073a; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-exclamation-triangle" style="color:#ff073a; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">Connection is not secure (HTTP instead of HTTPS).</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,7,58,0.03); border-left:2px solid #ff073a; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-exclamation-triangle" style="color:#ff073a; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">URL length is greater than 25 characters.</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,7,58,0.03); border-left:2px solid #ff073a; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-exclamation-triangle" style="color:#ff073a; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">Domain contains hyphens or multiple subdomains.</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:5px; background:rgba(255,7,58,0.03); border-left:2px solid #ff073a; padding:2px 4px; text-align:left;">
+                                <i class="fas fa-exclamation-triangle" style="color:#ff073a; font-size:0.4rem;"></i>
+                                <span style="color:#e2e8f0; font-size:0.42rem;">URL contains suspicious keywords (login, verify, bank, secure, update).</span>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; width:85%; justify-content:center; margin-top:4px;">
+                            <div style="background:#ff073a; color:#030611; font-weight:bold; padding:3px 15px; border-radius:4px; font-size:0.42rem; font-family:'Orbitron', sans-serif; text-align:center; width:100%;">Go Back (Safe)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus gallery-zoom-icon"></i>
+                    <h4 class="gallery-item-title">Access Blocked Page</h4>
+                    <p class="gallery-item-desc">High-risk interception page triggering when phishing keywords or blacklist entries match.</p>
+                </div>
+            </div>
+
+            <!-- Showcase Item 5: Dashboard Mock -->
+            <div class="gallery-item glass-panel reveal" data-category="extension">
+                <div class="gallery-image-wrapper">
+                    <!-- Embed generated dashboard preview mockup -->
+                    <img src="dashboard_preview.png" alt="PhishNetra Web Dashboard Analytics" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus gallery-zoom-icon"></i>
+                    <h4 class="gallery-item-title">Dashboard Preview</h4>
+                    <p class="gallery-item-desc">Optional developer analytics console representing aggregate blocked counts and history feeds.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section id="demo" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">DEMONSTRATION</span>
+            <h2 class="section-title">Demo Video Walkthrough</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="video-card glass-panel reveal">
+            <div class="video-container">
+                <!-- Replace with video thumbnail asset. Using abstract tech vector theme -->
+                <img src="dashboard_preview.png" alt="PhishNetra Demo Video Poster" class="video-poster-img">
+                <button class="video-play-btn" aria-label="Play Demo Video">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">OPEN SOURCE</span>
+            <h2 class="section-title">GitHub Repository</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="github-card glass-panel reveal">
+            <div class="github-details">
+                <h3 class="github-title">Code Repository & Install Guidelines</h3>
+                <p>
+                    PhishNetra is open source. You can access the client extension source files, local FastAPI configuration server scripts, and machine learning weights repository directly on GitHub.
+                </p>
+                <div class="github-stats">
+                    <div class="git-stat">
+                        <i class="fas fa-star"></i>
+                        <span>84 Stars</span>
+                    </div>
+                    <div class="git-stat">
+                        <i class="fas fa-code-branch"></i>
+                        <span>12 Forks</span>
+                    </div>
+                    <div class="git-stat">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>0 Open Issues</span>
+                    </div>
+                </div>
+                <!-- Interactive Copy Clone Script -->
+                <div class="clone-widget">
+                    <span class="clone-code">git clone https://github.com/bhavananairy18/PhishNetra.git</span>
+                    <button class="clone-copy-btn" title="Copy to clipboard">
+                        <i class="far fa-clone"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div style="display:flex; justify-content:center; align-items:center;">
+                <a href="https://github.com/bhavananairy18/PhishNetra" target="_blank" class="btn btn-primary" style="padding: 1.25rem 2.5rem;">
+                    <i class="fab fa-github" style="font-size:1.5rem;"></i> Go To GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Improvements Section -->
+    <section id="roadmap" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">MILESTONES</span>
+            <h2 class="section-title">Future Improvements</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="roadmap-grid">
+            
+            <!-- Milestone 1 -->
+            <div class="roadmap-card glass-panel completed reveal">
+                <span class="roadmap-status-badge">Released v1.0</span>
+                <h3 class="roadmap-title">Static Heuristics & WHOIS Engine</h3>
+                <p class="roadmap-desc">Core client browser scanner evaluating base URL structures, keyword weights, and WHOIS domain age checks.</p>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="roadmap-card glass-panel in-progress reveal">
+                <span class="roadmap-status-badge">In Progress</span>
+                <h3 class="roadmap-title">AI Content Classification</h3>
+                <p class="roadmap-desc">Integrating lightweight client-side TensorFlow.js threat models to scan page content strings and login boxes.</p>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="roadmap-card glass-panel upcoming reveal">
+                <span class="roadmap-status-badge">Roadmap Q4</span>
+                <h3 class="roadmap-title">Visual Layout Matching</h3>
+                <p class="roadmap-desc">Comparing screenshots of loading pages against popular bank portals dynamically to block graphical logo clones.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="section-header reveal">
+            <span class="section-subtitle">GET IN TOUCH</span>
+            <h2 class="section-title">Contact Developers</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info reveal">
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4 class="contact-method-title">Email Enquiries</h4>
+                        <p class="contact-method-detail">support@phishnetra.security</p>
+                    </div>
+                </div>
+
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <h4 class="contact-method-title">PGP Encryption Keys</h4>
+                        <p class="contact-method-detail">Key ID: 0x9B2A4C1D (RSA 4096)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive glassmorphism contact form -->
+            <div class="contact-form-wrapper reveal">
+                <form id="phishnetra-contact-form" class="contact-form glass-panel">
+                    <div class="form-group">
+                        <label for="contact-name" class="form-label">NAME / IDENTIFIER</label>
+                        <input type="text" id="contact-name" class="form-input" placeholder="e.g. Agent Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email" class="form-label">EMAIL ADDRESS</label>
+                        <input type="email" id="contact-email" class="form-input" placeholder="e.g. agent@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message" class="form-label">MESSAGE</label>
+                        <textarea id="contact-message" class="form-input" placeholder="Encrypt message or type queries here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-top:0.5rem; align-self:flex-start;">
+                        <i class="fas fa-paper-plane"></i> Send Query
+                    </button>
+                </form>
+
+                <!-- Success Screen Terminal Interface -->
+                <div class="terminal-success-overlay">
+                    <div class="terminal-success-header">
+                        <span>PHISHNETRA TRANSMISSION CHANNEL</span>
+                        <span>v1.0.4 SECURE</span>
+                    </div>
+                    <div class="terminal-success-body">
+                        <!-- Filled dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <a href="#" class="logo-wrapper">
+                <span class="logo-text">PhishNetra</span>
+            </a>
+            
+            <div class="footer-nav">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#workflow">Workflow</a>
+                <a href="#tech">Tech Stack</a>
+                <a href="#gallery">Showcase</a>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://github.com/bhavananairy18/PhishNetra" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon" aria-label="Security Keys"><i class="fas fa-key"></i></a>
+            </div>
+
+            <p class="copyright">&copy; 2026 PhishNetra Security Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Full Screen Lightbox Modal for Screenshots Gallery -->
+    <div id="gallery-lightbox" class="lightbox-modal">
+        <div class="lightbox-content-wrapper">
+            <button class="lightbox-close-btn" aria-label="Close Preview">&times;</button>
+            <img class="lightbox-img" src="" alt="Screenshot Showcase Preview">
+            <h4 class="lightbox-title">Screenshot Title</h4>
+        </div>
+    </div>
+
+</body>
+</html>
