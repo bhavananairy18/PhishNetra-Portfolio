@@ -490,63 +490,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Contact Form - Terminal Success Submission
-    const contactForm = document.getElementById('phishnetra-contact-form');
-    const successOverlay = document.querySelector('.terminal-success-overlay');
-    const terminalBody = document.querySelector('.terminal-success-body');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Collect form data
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
-
-            // Hide fields
-            contactForm.style.display = 'none';
-            successOverlay.style.display = 'flex';
-
-            // Simulate typing system sequence
-            let scriptText = [
-                `> Initiating handshake with server...`,
-                `> Encryption cipher: TLS_AES_256_GCM_SHA384 (Secure)`,
-                `> Sender verified: ${email}`,
-                `> Payload packaged: Name(${name}) MsgLength(${message.length} bytes)`,
-                `> Transmission status: SUCCESS [Code 200]`,
-                `> Message routed safely. Thank you, Agent. We will contact you soon.`
-            ];
-
-            let lineIndex = 0;
-            terminalBody.innerHTML = '';
-
-            function typeTerminalLines() {
-                if (lineIndex < scriptText.length) {
-                    const p = document.createElement('p');
-                    p.style.marginBottom = '8px';
-                    terminalBody.appendChild(p);
-                    
-                    let lineText = scriptText[lineIndex];
-                    let charPos = 0;
-                    
-                    function typeChar() {
-                        if (charPos < lineText.length) {
-                            p.textContent += lineText.charAt(charPos);
-                            charPos++;
-                            setTimeout(typeChar, 25);
-                        } else {
-                            lineIndex++;
-                            setTimeout(typeTerminalLines, 400); // delay before next line
-                        }
-                    }
-                    typeChar();
-                }
-            }
-
-            typeTerminalLines();
-        });
-    }
+    // 8. Contact Form Handler (Deprecated in favor of direct mailto link in HTML)
 
     // 9. Video Mock Player Click Event
     const videoContainer = document.querySelector('.video-container');

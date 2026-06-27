@@ -791,58 +791,23 @@
             <div class="section-divider"></div>
         </div>
 
-        <div class="contact-container">
-            <div class="contact-info reveal">
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+        <div class="contact-container" style="display: flex; justify-content: center; align-items: center;">
+            <!-- Secure Communications Node -->
+            <div class="contact-card-wrapper reveal" style="width: 100%; max-width: 600px;">
+                <div class="contact-card glass-panel" style="padding: 3rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; align-items: center; text-align: center; border-radius: 16px;">
+                    <div class="contact-icon" style="width: 55px; height: 55px; background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.25); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: var(--neon-blue); box-shadow: var(--blue-glow); transition: all 0.3s;">
+                        <i class="fas fa-paper-plane"></i>
                     </div>
-                    <div>
-                        <h4 class="contact-method-title">Email Enquiries</h4>
-                        <p class="contact-method-detail">support@phishnetra.security</p>
+                    <h3 class="font-cyber" style="font-size: 1.25rem; font-weight: 700; color: white; letter-spacing: 1.5px; text-transform: uppercase; margin: 0;">Establish Communications</h3>
+                    <p style="color: var(--text-secondary); font-size: 1rem; max-width: 400px; line-height: 1.6; margin: 0;">
+                        Secure routing node active. Click below to establish a direct connection with the PhishNetra developers.
+                    </p>
+                    <div style="font-family: monospace; font-size: 1.15rem; color: var(--neon-green); background: rgba(3, 6, 17, 0.7); border: 1px solid rgba(57, 255, 20, 0.25); padding: 0.75rem 2rem; border-radius: 8px; box-shadow: var(--green-glow); margin: 0.25rem 0; word-break: break-all; letter-spacing: 0.5px;">
+                        phishnetra@gmail.com
                     </div>
-                </div>
-
-                <div class="contact-method">
-                    <div class="contact-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div>
-                        <h4 class="contact-method-title">PGP Encryption Keys</h4>
-                        <p class="contact-method-detail">Key ID: 0x9B2A4C1D (RSA 4096)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive glassmorphism contact form -->
-            <div class="contact-form-wrapper reveal">
-                <form id="phishnetra-contact-form" class="contact-form glass-panel">
-                    <div class="form-group">
-                        <label for="contact-name" class="form-label">NAME / IDENTIFIER</label>
-                        <input type="text" id="contact-name" class="form-input" placeholder="e.g. Agent Smith" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-email" class="form-label">EMAIL ADDRESS</label>
-                        <input type="email" id="contact-email" class="form-input" placeholder="e.g. agent@domain.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-message" class="form-label">MESSAGE</label>
-                        <textarea id="contact-message" class="form-input" placeholder="Encrypt message or type queries here..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="margin-top:0.5rem; align-self:flex-start;">
-                        <i class="fas fa-paper-plane"></i> Send Query
-                    </button>
-                </form>
-
-                <!-- Success Screen Terminal Interface -->
-                <div class="terminal-success-overlay">
-                    <div class="terminal-success-header">
-                        <span>PHISHNETRA TRANSMISSION CHANNEL</span>
-                        <span>v1.0.4 SECURE</span>
-                    </div>
-                    <div class="terminal-success-body">
-                        <!-- Filled dynamically via JS -->
-                    </div>
+                    <a href="mailto:phishnetra@gmail.com" class="btn btn-primary" style="margin-top: 0.5rem; text-decoration: none; padding: 0.85rem 2.5rem;">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
                 </div>
             </div>
         </div>
